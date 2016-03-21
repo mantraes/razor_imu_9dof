@@ -54,9 +54,9 @@ def reconfig_callback(config, level):
 
 rospy.init_node("razor_node")
 #We only care about the most recent measurement, i.e. queue_size=1
-pub = rospy.Publisher('imu', Imu, queue_size=1)
+pub = rospy.Publisher('imu/data', Imu, queue_size=1)
 srv = Server(imuConfig, reconfig_callback)  # define dynamic_reconfigure callback
-diag_pub = rospy.Publisher('diagnostics', DiagnosticArray, queue_size=1)
+diag_pub = rospy.Publisher('imu/diagnostics', DiagnosticArray, queue_size=1)
 diag_pub_time = rospy.get_time();
 
 imuMsg = Imu()
@@ -255,7 +255,7 @@ while not rospy.is_shutdown():
     imuMsg.orientation.z = q[2]
     imuMsg.orientation.w = q[3]
     imuMsg.header.stamp= rospy.Time.now()
-    imuMsg.header.frame_id = 'base_imu_link'
+    imuMsg.header.frame_id = 'imu_link'
     imuMsg.header.seq = seq
     seq = seq + 1
     pub.publish(imuMsg)
