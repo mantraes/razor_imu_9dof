@@ -174,7 +174,7 @@
 /*****************************************************************/
 // Select your hardware here by uncommenting one line!
 //#define HW__VERSION_CODE 10125 // SparkFun "9DOF Razor IMU" version "SEN-10125" (HMC5843 magnetometer)
-//#define HW__VERSION_CODE 10736 // SparkFun "9DOF Razor IMU" version "SEN-10736" (HMC5883L magnetometer)
+#define HW__VERSION_CODE 10736 // SparkFun "9DOF Razor IMU" version "SEN-10736" (HMC5883L magnetometer)
 //#define HW__VERSION_CODE 10183 // SparkFun "9DOF Sensor Stick" version "SEN-10183" (HMC5843 magnetometer)
 //#define HW__VERSION_CODE 10321 // SparkFun "9DOF Sensor Stick" version "SEN-10321" (HMC5843 magnetometer)
 //#define HW__VERSION_CODE 10724 // SparkFun "9DOF Sensor Stick" version "SEN-10724" (HMC5883L magnetometer)
@@ -230,27 +230,27 @@ boolean output_errors = false;  // true or false
 // Put MIN/MAX and OFFSET readings for your board here!
 // Accelerometer
 // "accel x,y,z (min/max) = X_MIN/X_MAX  Y_MIN/Y_MAX  Z_MIN/Z_MAX"
-float ACCEL_X_MIN = -250;
-float ACCEL_X_MAX = 250;
-float ACCEL_Y_MIN = -250;
-float ACCEL_Y_MAX = 250;
-float ACCEL_Z_MIN = -250;
-float ACCEL_Z_MAX = 250;
+float ACCEL_X_MIN = -265;
+float ACCEL_X_MAX = 245;
+float ACCEL_Y_MIN = -248;
+float ACCEL_Y_MAX = 267;
+float ACCEL_Z_MIN = -276;
+float ACCEL_Z_MAX = 230;
 
 // Magnetometer (standard calibration mode)
 // "magn x,y,z (min/max) = X_MIN/X_MAX  Y_MIN/Y_MAX  Z_MIN/Z_MAX"
-float MAGN_X_MIN = -600;
-float MAGN_X_MAX = 600;
-float MAGN_Y_MIN = -600;
-float MAGN_Y_MAX = 600;
-float MAGN_Z_MIN = -600;
-float MAGN_Z_MAX = 600;
+float MAGN_X_MIN = -633;
+float MAGN_X_MAX = 516;
+float MAGN_Y_MIN = -520;
+float MAGN_Y_MAX = 462;
+float MAGN_Z_MIN = -434;
+float MAGN_Z_MAX = 458;
 
 // Magnetometer (extended calibration mode)
 // Set to true to use extended magnetometer calibration (compensates hard & soft iron errors)
-boolean CALIBRATION__MAGN_USE_EXTENDED = false;
-float magn_ellipsoid_center[3] = {0, 0, 0};
-float magn_ellipsoid_transform[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+boolean CALIBRATION__MAGN_USE_EXTENDED = true;
+float magn_ellipsoid_center[3] = {-54.4809, -28.9563, 12.9810};
+float magn_ellipsoid_transform[3][3] = {{0.767972, 0.00176574, -0.00920111}, {0.00176574, 0.884199, 0.0245766}, {-0.00920111, 0.0245766, 0.994448}};
 
 // Gyroscope
 // "gyro x,y,z (current/average) = .../OFFSET_X  .../OFFSET_Y  .../OFFSET_Z
