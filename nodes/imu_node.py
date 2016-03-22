@@ -220,9 +220,10 @@ rospy.loginfo("Publishing IMU data...")
 
 while not rospy.is_shutdown():
     line = ser.readline()
-    line = line.replace("#YPR=","")   # Delete "#YPRAG="
+    line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
     print line
-    #line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
+    line = line.replace("\r\n","")   # Delete "#YPRAG="
+    print line
     #f.write(line)                     # Write to the output log file
     words = string.split(line,",")    # Fields split
     print words
