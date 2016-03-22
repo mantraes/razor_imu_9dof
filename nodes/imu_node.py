@@ -222,7 +222,8 @@ while not rospy.is_shutdown():
     line = ser.readline()
     line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
     #f.write(line)                     # Write to the output log file
-    words = string.split(line,",")    # Fields split
+    #words = string.split(line,",")    # Fields split
+    words = string.split(",")    # Fields split
     if len(words) > 2:
         #in AHRS firmware z axis points down, in ROS z axis points up (see REP 103)
         yaw_deg = -float(words[0])
@@ -279,5 +280,5 @@ while not rospy.is_shutdown():
         diag_arr.status.append(diag_msg)
         diag_pub.publish(diag_arr)
         
-ser.close
+ser.close()
 #f.close
