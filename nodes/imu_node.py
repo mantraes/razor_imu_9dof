@@ -220,10 +220,12 @@ rospy.loginfo("Publishing IMU data...")
 
 while not rospy.is_shutdown():
     line = ser.readline()
-    line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
+    line = line.replace("#YPR=","")   # Delete "#YPRAG="
+    print line
+    #line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
     #f.write(line)                     # Write to the output log file
-    #words = string.split(line,",")    # Fields split
-    words = string.split(",")    # Fields split
+    words = string.split(line,",")    # Fields split
+    print words
     if len(words) > 2:
         #in AHRS firmware z axis points down, in ROS z axis points up (see REP 103)
         yaw_deg = -float(words[0])
