@@ -222,7 +222,7 @@ while not rospy.is_shutdown():
     line = ser.readline()
     line = line.replace("#YPRAG=","")   # Delete "#YPRAG="
     print line
-    line = line.replace("\r\n\x","")   # Delete "#YPRAG="
+    line = line.replace("\r\n","")   # Delete "#YPRAG="
     print line
     #f.write(line)                     # Write to the output log file
     words = string.split(line,",")    # Fields split
